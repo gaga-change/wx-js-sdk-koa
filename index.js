@@ -33,7 +33,13 @@ async function fetchTokenAndTicket() {
   ticketCache.ticket = ticket
 }
 
-schedule.scheduleJob('0 0 * * * ?', async function(){
+schedule.scheduleJob('0 0 0/3 * * ?', async function(){
+  log('定时器启动')
+  await fetchTokenAndTicket()
+  log('刷新token、ticket结束')
+});
+
+schedule.scheduleJob('0 30 1/3 * * ?', async function(){
   log('定时器启动')
   await fetchTokenAndTicket()
   log('刷新token、ticket结束')
