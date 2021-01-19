@@ -16,8 +16,8 @@ function sha1(str) {
 }
 
 const app = new Koa()
-const APP_ID = 'wxcfdd9a5d9a5aa40b'
-const APP_SECRET = 'f69678e9c7167b7af430dda95e3ef14f'
+const APP_ID = process.env.APP_ID || ''
+const APP_SECRET = process.env.APP_SECRET || ''
 
 const ticketCache = {
   ticket: "",
